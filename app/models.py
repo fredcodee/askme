@@ -1,6 +1,5 @@
 from flask_login import UserMixin
 from datetime import datetime
-from hashlib import md5
 from app import db
 
 
@@ -9,8 +8,13 @@ class User(UserMixin, db.Model):
   email = db.Column(db.String(120), unique=True, nullable=False)
   username = db.Column(db.String(80), unique=True, nullable=False)
   password = db.Column(db.String(100))
-  reviews = db.relationship('Review', backref='feedback', lazy=True)
+  expert = db.Column(db.Boolean)
+  qnas = db.relationship('Questions', backref='qna', lazy=True)
 
-  def avatar(self, size):
-    digest = md5(self.email.lower().encode('utf-8')).hexdigest()
-    return('https://www.gravatar.com/avatar/{}?d=identicon&s={}'.format(digest, size))
+class Questions(db.Model):
+  id = db.Column(db.Integer, primary_key=True)
+  user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+  expert_id = db.Column(db.Integer)
+  dateposted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
+  question = db.Column(db.String)
+  answer = db.Column(db.String)
