@@ -1,1 +1,21 @@
 {% extends 'layout.html'%}
+{% block title%}
+<title>Askme</title>
+{% endblock %}
+
+{% block links%}
+  <link rel="stylesheet" href="{{url_for('static',filename='home.css')}}">
+{% endblock %}
+
+{% block con%}
+<div class="header">
+  <h1>Ask an expert. Trust the answer.</h1>
+  <p>Your academic and career questions answered by verified experts.</p>
+  <button type="button" class="btn btn-light btn-lg">Ask A Question?</button>
+</div>
+
+<div class="selection">
+</div>
+
+<div class="qna"></div>
+{% endblock %}

@@ -1,0 +1,11 @@
+.header {
+  background: url("/static/img/banner.jpg"), -webkit-gradient(linear, left top, right top, from(#25b8cb), to(#7ac276));
+  background: url("/static/img/banner.jpg"), linear-gradient(90deg, #25b8cb, #7ac276);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  padding-bottom: 10px;
+  text-align: center;
+  color: white;
+}
+/*# sourceMappingURL=home.css.map */
