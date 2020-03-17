@@ -25,8 +25,16 @@ def home():
     return(render_template("home.html",questions=questions))
 
 @main.route("/ask", methods=['POST','GET'])
-@login_required
+#@login_required
 def ask():
+  experts= User.query.filter_by(expert=True)
+  if request.method == "POST":
+    user_question = request.form.get("question")
+    expert = request.form.get("experts")
+
+    return(render_template("ask.html", experts=experts))
+  else:
+    return(render_template("ask.html"))
   
 
 @main.route("/answer", methods=['POST','GET'])

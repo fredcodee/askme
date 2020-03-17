@@ -9,5 +9,40 @@
 {% endblock %}
 
 {% block con%}
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8">
+      <div class="ask">
+        <form action="/ask" method="POST">
+          <h1>Ask a Question</h1>
+          <p>Make sure what you’re asking is unique, concise, and phrased like a question.</p>
+          <label for="question">Title <span>(Required)</span></label>
+          <input type="text" id="question" name="question" placeholder="What’s your question? Be specific and unique..."
+            required> <br>
+          <p>Ask an Expert</p>
+          <select name="experts" method="GET" action="/ask" required>
+            {%for expert in experts%}
+              <option value="{{expert.id}}">{{ expert.username }}</option>"
+            {% endfor %}
+          </select>
+          <button>submit</button> <br>
+          <small>You'll receive a notification when someone answers or comments on your question.</small>
+        </form>
+      </div>
+    </div>
+    <div class="col-12 col-md-4">
+      <h1>QUESTION GUIDELINES</h1>
+      <p>Include a title to your question and a more detailed description. The more unique and informative your question, the
+      better the chance you have of tutors engaging with you.</p>
+      <h3>OTHER TIPS</h3>
+      <ul>
+        <li>Keep your questions short and to the point</li>
+        <li>Check for grammar or spelling errors</li>
+        <li>Phrase it like a question</li>
+      </ul>
+      <small>We’ll notify you whenever a tutor answers your question or when you receive comments for more clarification</small>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
