@@ -29,7 +29,7 @@
 <div class="qna">
   {% for question in questions%}
     <div class="question">
-      <p class="mb-1" style="color:black">@{{question.qna.username}}</p>
+      <p class="mb-1" style="color:black">@{{question.qna.username}} asked </p>
       <p>{{question.question}}</p>
       <small>{{question.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small>
     </div>

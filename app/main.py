@@ -39,18 +39,31 @@ def ask():
     db.session.commit()
 
     flash("Question uploaded successfully")
-    return(redirect(url_for("ask.html")))
+    return(redirect(url_for("main.ask")))
   else:
-    return(render_template("ask.html"))
+    return(render_template("ask.html", experts=experts))
 
 @main.route("/questions", methods=['POST','GET'])
 @login_required
 def questions():
-  pass 
+  unanswered=[]
+  if current_user.expert:
+    questions=Questions.query.filter_by(expert_id=current_user.id).all()
+    for question in questions:
+      if question.answer == " ":
+        unanswered.append(question)
+    return(render_template("question.html", logs=unanswered))
+  else:
+    abort(404)
 
 @main.route("/answer", methods=['POST','GET'])
 @login_required
 def answer():
+  pass
+
+@main.route("/profile", methods=['POST','GET'])
+@login_required
+def profile():
   pass
 
 @main.route("/admin", methods=['POST','GET'])
