@@ -30,12 +30,12 @@ def login():
 def signup():
   if request.method == "POST":
     email = request.form.get('email')
-    name = request.form.get('name')
     username = request.form.get('username')
     password = request.form.get('password')
+    type_user = request.form.get('type_user')
 
     # Ensure required details  was submitted
-    if not email or not name or not password or not username:
+    if not email or not name or not password or not username or not type_user:
       flash("must provide all required details")
       return(redirect(url_for('auth.signup')))
     if len(password) < 4:
@@ -54,9 +54,14 @@ def signup():
       return(redirect(url_for('auth.signup')))
 
     else:
-      #registring new user
-      new_user = User(email=email, username=username,
-                      password=generate_password_hash(password, method='sha256'))
+      #check type of user
+      if type_user == "expert":
+        type_user = True
+      else:
+        type_user = False
+
+      #registering new user
+      new_user = User(email=email, username=username, expert=type_user,password=generate_password_hash(password, method='sha256'))
 
       db.session.add(new_user)
       db.session.commit()

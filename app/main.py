@@ -24,3 +24,13 @@ def home():
     questions= Questions.query.all()
     return(render_template("home.html",questions=questions))
 
+@main.route("/ask", methods=['POST','GET'])
+@login_required
+def ask():
+  
+
+@main.route("/answer", methods=['POST','GET'])
+@login_required
+def answer():
+  pass
+
