@@ -35,7 +35,7 @@ def signup():
     type_user = request.form.get('type_user')
 
     # Ensure required details  was submitted
-    if not email or not name or not password or not username or not type_user:
+    if not email or not password or not username or not type_user:
       flash("must provide all required details")
       return(redirect(url_for('auth.signup')))
     if len(password) < 4:
