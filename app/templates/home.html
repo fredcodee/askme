@@ -11,11 +11,28 @@
 <div class="header">
   <h1>Ask an expert. Trust the answer.</h1>
   <p>Your academic and career questions answered by verified experts.</p>
-  <button type="button" class="btn btn-light btn-lg">Ask A Question?</button>
+  <a href="#"><button type="button" class="btn btn-light btn-lg">Ask A Question?</button></a>
 </div>
 
 <div class="selection">
+  <form action="/" method="POST"> 
+    <select name="selection">
+      <option value="sl">Select Questions</option>
+      <option value="AQ">Answered Questions</option>
+      <option value="UQ">Unanswered Questions</option>
+      <option value="ALQ">All Questions</option>
+    </select>
+    <button>submit</button>
+  </form>
 </div>
 
-<div class="qna"></div>
+<div class="qna">
+  {% for question in questions%}
+    <div class="question">
+      <p class="mb-1" style="color:black">@{{question.qna.username}}</p>
+      <p>{{question.question}}</p>
+      <small>{{question.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small>
+    </div>
+  {% endfor %}
+</div>
 {% endblock %}
