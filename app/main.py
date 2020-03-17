@@ -31,16 +31,30 @@ def ask():
   if request.method == "POST":
     user_question = request.form.get("question")
     expert = request.form.get("experts")
-    
-    #add to db
+    #add to database
+   
+    new_question = Questions(expert_id=int(expert),question=user_question,answer=" ",qna=current_user)
 
-    return(render_template("ask.html", experts=experts))
+    db.session.add(new_question)
+    db.session.commit()
+
+    flash("Question uploaded successfully")
+    return(redirect(url_for("ask.html")))
   else:
     return(render_template("ask.html"))
-  
+
+@main.route("/questions", methods=['POST','GET'])
+@login_required
+def questions():
+  pass 
 
 @main.route("/answer", methods=['POST','GET'])
 @login_required
 def answer():
   pass
 
+@main.route("/admin", methods=['POST','GET'])
+@login_required
+def admin():
+  users= User.query.all()
+  return(render_template("admin.html", users=users))

@@ -14,6 +14,13 @@
     <div class="col-12 col-lg-8">
       <div class="ask">
         <form action="/ask" method="POST">
+          {% with messages = get_flashed_messages() %}
+          {% if messages%}
+          <div class="alert alert-success" role="alert">
+            {{ messages[0] }}
+          </div>
+          {% endif %}
+          {% endwith%}
           <h1>Ask a Question</h1>
           <p>Make sure what you’re asking is unique, concise, and phrased like a question.</p>
           <label for="question">Title <span>(Required)</span></label>
