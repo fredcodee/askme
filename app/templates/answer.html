@@ -16,8 +16,9 @@
       <p>{{get_q.question}}</p>
     </div>
     <div class="a">
-      <form action="/ans/{{get_q.id}}">
+      <form method= "POST" action="{{ url_for('main.answer', idd= get_q.id) }}">
         <input type="text" name="answer">
+        <button>submit</button>
       </form>
     </div>
   </div>

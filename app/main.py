@@ -56,22 +56,20 @@ def questions():
   else:
     abort(404)
 
-@main.route("/answer/<idd>", methods=['POST','GET'])
+@main.route("/answer/<idd>",methods=['POST','GET'])
 @login_required
-def answerpage(idd):
-  get_q= Questions.query.get(idd)
-  return(render_template("answer.html",get_q=get_q))
-
-@main.route("/ans/<idd>")
-@login_required
-def ans(idd):
+def answer(idd):
   if current_user.expert:
-    get_q= Questions.query.get(idd)
-    get_a = request.form.get("answer")
+    if request.method== "POST":
+      get_q= Questions.query.get(idd)
+      get_a = request.form.get("answer")
 
-    get_q.answer= get_a
-    db.session.commit()
-    return(redirect(url_for('main.questions')))
+      get_q.answer= get_a
+      db.session.commit()
+      return(redirect(url_for('main.questions')))
+    else:
+      get_q= Questions.query.get(idd)
+      return(render_template("answer.html",get_q=get_q))
   else:
     abort(404)
 
@@ -85,4 +83,5 @@ def profile():
 @login_required
 def admin():
   users= User.query.all()
-  return(render_template("admin.html", users=users))
+  questions=Questions.query.all()
+  return(render_template("admin.html", users=users, questions=questions))

@@ -12,4 +12,11 @@
    <p>{{user.username}}</p>
   {%endif%}
   {%endfor%}
+  <div>
+    <h1>questions</h1>
+    {%for q in questions%}
+      <p>{{q.question}}</p>
+      <small>{{q.answer}}</small>
+    {%endfor%}
+  </div>
 {% endblock %}
