@@ -1,1 +1,26 @@
 {% extends 'layout.html'%}
+
+{% block title%}
+<title>Answer</title>
+{% endblock %}
+
+{% block links%}
+<link rel="stylesheet" href="{{url_for('static',filename='answer.css')}}">
+{% endblock %}
+
+{% block con%}
+<div class="container">
+  <div class="answerbox">
+    <div class="q">
+      <p class="mb-1" style="color:black">@{{get_q.qna.username}} asked  on - <span>{{get_q.dateposted.strftime("%b %d %Y %H:%M:%S")}}</span></p>
+      <p>{{get_q.question}}</p>
+    </div>
+    <div class="a">
+      <form action="/ans/{{get_q.id}}">
+        <input type="text" name="answer">
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

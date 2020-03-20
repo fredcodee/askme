@@ -56,10 +56,25 @@ def questions():
   else:
     abort(404)
 
-@main.route("/answer", methods=['POST','GET'])
+@main.route("/answer/<idd>", methods=['POST','GET'])
 @login_required
-def answer():
-  pass
+def answerpage(idd):
+  get_q= Questions.query.get(idd)
+  return(render_template("answer.html",get_q=get_q))
+
+@main.route("/ans/<idd>")
+@login_required
+def ans(idd):
+  if current_user.expert:
+    get_q= Questions.query.get(idd)
+    get_a = request.form.get("answer")
+
+    get_q.answer= get_a
+    db.session.commit()
+    return(redirect(url_for('main.questions')))
+  else:
+    abort(404)
+
 
 @main.route("/profile", methods=['POST','GET'])
 @login_required

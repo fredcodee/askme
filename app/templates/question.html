@@ -12,5 +12,7 @@
   <p class="mb-1" style="color:black">@{{log.qna.username}} asked </p>
   <p>{{log.question}}</p>
   <small>{{log.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small>
+  <a href="/answer/{{log.id}}"><button>Answer</button></a>
+  <hr>
 {%endfor%}
 {% endblock%}
