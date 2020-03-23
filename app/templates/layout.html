@@ -41,7 +41,7 @@
           </li>
           <li class="nav-item">
             <a class="nav-link"
-              href="#">{{ current_user.username }}</a>
+              href="{{url_for('main.profile')}}">{{ current_user.username }}</a>
           </li>
           <li class="nav-item logout">
             <a class="nav-link" href="{{ url_for('auth.logout')}}">Sign-out</a>

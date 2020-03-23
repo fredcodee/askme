@@ -77,6 +77,16 @@ def answer(idd):
 @main.route("/profile", methods=['POST','GET'])
 @login_required
 def profile():
+  if current_user.expert:
+    get_log = Questions.query.filter_by(expert_id = current_user.id).all()
+  else:
+    get_log = Questions.query.filter_by(user_id = current_user.id).all()
+
+  return(render_template("profile.html", get_log=get_log))
+
+@main.route("/delete", methods=['POST'])
+@login_required
+def delete()
   pass
 
 @main.route("/admin", methods=['POST','GET'])
