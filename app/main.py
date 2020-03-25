@@ -79,15 +79,29 @@ def answer(idd):
 def profile():
   if current_user.expert:
     get_log = Questions.query.filter_by(expert_id = current_user.id).all()
+    ll=[]
+    for log in get_log:
+      if log.answer != " ":
+        ll.append(log)
+    get_log=ll
   else:
     get_log = Questions.query.filter_by(user_id = current_user.id).all()
 
   return(render_template("profile.html", get_log=get_log))
 
-@main.route("/delete", methods=['POST'])
+@main.route("/delete/<idd>")
 @login_required
-def delete()
-  pass
+def delete(idd):
+  get_details = Questions.query.get(idd)
+  if current_user.expert:
+    get_details.answer = " "
+    db.session.commit()
+    return(redirect(url_for('main.profile')))
+  else:
+    db.session.delete(get_details)
+    db.session.commit()
+    return(redirect(url_for('main.profile')))
+
 
 @main.route("/admin", methods=['POST','GET'])
 @login_required

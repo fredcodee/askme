@@ -18,6 +18,7 @@
       <p class="mb-1" style="color:black">@{{log.qna.username}} asked on <small>{{log.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small></p>
       <p>{{log.question}}</p>
       <p>{{log.answer}}</p>
+      <a href="/delete/{{log.id}}"><button>Delete</button></a>
     {% endfor %}
   </div>
 </div>
