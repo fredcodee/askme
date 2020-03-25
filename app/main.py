@@ -15,9 +15,10 @@ def home():
     if selection == "UQ":
       questions= Questions.query.filter_by(answer=" ").all()
     elif selection == "AQ":
-      pass
-    elif selection == "ALQ":
-      questions= Questions.query.all()
+      #get the  anwsered questions
+      questions= Questions.query.filter(Questions.answer != " ").all()
+    elif selection == "ALQ" or selection == "SL":
+      questions=Questions.query.all()
 
     return(render_template("home.html", questions=questions))
   else:
@@ -52,6 +53,7 @@ def questions():
     for question in questions:
       if question.answer == " ":
         unanswered.append(question)
+    unanswered.reverse()
     return(render_template("question.html", logs=unanswered))
   else:
     abort(404)
