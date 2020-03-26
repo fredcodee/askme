@@ -11,7 +11,7 @@
 <div class="header">
   <h1>Ask an expert. Trust the answer.</h1>
   <p>Your academic and career questions answered by verified experts.</p>
-  <a href="#"><button type="button" class="btn btn-light btn-lg">Ask A Question?</button></a>
+  <a href="{{ url_for('main.ask')}}"><button type="button" class="btn btn-light btn-lg">Ask A Question?</button></a>
 </div>
 
 <div class="selection">
@@ -29,8 +29,8 @@
 <div class="qna">
   {% for question in questions%}
     <div class="question">
-      <p class="mb-1" style="color:black">@{{question.qna.username}} asked </p>
-      <small>{{question.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small>
+      <p class="mb-1" style="color:black">@{{question.qna.username}} asked {{question.expert_name}} on <small>{{question.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small></p>
+      
       <p>{{question.question}}</p>
       
       <p>answer - {{question.answer}}</p>

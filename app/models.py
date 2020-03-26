@@ -18,3 +18,4 @@ class Questions(db.Model):
   dateposted = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
   question = db.Column(db.String)
   answer = db.Column(db.String)
+  expert_name = db.Column(db.String)

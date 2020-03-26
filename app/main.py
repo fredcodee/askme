@@ -9,6 +9,7 @@ main = Blueprint('main', __name__)
 
 @main.route("/", methods=['POST','GET'])
 def home():
+      
   if request.method == 'POST':
     selection = request.form.get("selection")
     #show questions
@@ -32,9 +33,12 @@ def ask():
   if request.method == "POST":
     user_question = request.form.get("question")
     expert = request.form.get("experts")
+
+    #get expert username
+    name = User.query.get(int(expert))
+
     #add to database
-   
-    new_question = Questions(expert_id=int(expert),question=user_question,answer=" ",qna=current_user)
+    new_question = Questions(expert_id=int(expert),question=user_question,answer=" ",expert_name=name.username, qna=current_user)
 
     db.session.add(new_question)
     db.session.commit()
