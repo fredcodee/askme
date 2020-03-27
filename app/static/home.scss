@@ -1,9 +1,52 @@
+@import 'layout';
+
 .header{
-  background: url('/static/img/banner.jpg'),linear-gradient(90deg,#25b8cb,#7ac276);
+  background: url('/static/img/background.jpg'),linear-gradient(90deg,#25b8cb,#7ac276);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   padding-bottom: 10px;
   text-align: center;
   color: white;
+  min-height: 20rem;
+  .head_con{
+    padding-top: 4rem;
+    h1{
+      font-family: $heading-style;
+      font-weight: 700;
+      font-size: 46px;
+    }
+    p{
+      font-family: $con-style;
+      font-weight: 300;
+      line-height: 1.2;
+      font-size: 26px;
+      margin-bottom: 3rem;
+    }
+  }
+  button.btn{
+    min-width: 300px;
+    color: #ed6d20;
+    background: #fff;
+    
+    &:hover{
+      color:green;    
+    }
+  }
+}
+
+.selection{
+  margin-top: 2rem;
+  select{
+    max-width: 300px;
+    cursor: pointer;
+    padding: 0.7rem 5rem 0.7rem 0.7rem;
+  }
+  padding-bottom: 1rem;
+}
+
+.qna{
+  text-align: center;
+  box-sizing: content-box;
+  width: 100%;
 }

@@ -9,32 +9,39 @@
 
 {% block con%}
 <div class="header">
-  <h1>Ask an expert. Trust the answer.</h1>
-  <p>Your academic and career questions answered by verified experts.</p>
-  <a href="{{ url_for('main.ask')}}"><button type="button" class="btn btn-light btn-lg">Ask A Question?</button></a>
+  <div class="head_con">
+    <h1>Ask an expert. Trust the answer.</h1>
+    <p>Your academic and career questions answered by verified experts.</p>
+    <a href="{{ url_for('main.ask')}}"><button type="button" class="btn btn-light btn-lg">Ask A Question?</button></a>
+  </div>
 </div>
 
-<div class="selection">
-  <form action="/" method="POST"> 
-    <select name="selection">
-      <option value="SL">Select Questions</option>
-      <option value="ALQ">All Questions</option>
-      <option value="AQ">Answered Questions</option>
-      <option value="UQ">Unanswered Questions</option>
-    </select>
-    <button>submit</button>
-  </form>
-</div>
-
-<div class="qna">
-  {% for question in questions%}
+<div class="container">
+  <div class="selection">
+    <form action="/" method="POST">
+      <select name="selection">
+        <option value="SL">Select Questions</option>
+        <option value="ALQ">All Questions</option>
+        <option value="AQ">Answered Questions</option>
+        <option value="UQ">Unanswered Questions</option>
+      </select>
+      <button class="btn btn-dark">submit</button>
+    </form>
+  </div>
+  
+  <div class="qna">
+    {% for question in questions%}
     <div class="question">
-      <p class="mb-1" style="color:black">@{{question.qna.username}} asked {{question.expert_name}} on <small>{{question.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small></p>
-      
+      <p class="mb-1" style="color:black">@{{question.qna.username}} asked {{question.expert_name}} on
+        <small>{{question.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small></p>
+  
       <p>{{question.question}}</p>
-      
+  
       <p>answer - {{question.answer}}</p>
+      <hr>
     </div>
-  {% endfor %}
+    {% endfor %}
+  </div>
 </div>
+
 {% endblock %}
