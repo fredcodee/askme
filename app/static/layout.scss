@@ -1,0 +1,13 @@
+$con-style: 'Varela Round', sans-serif;
+$icon-style: 'Abril Fatface', cursive;
+$heading-style: 'Bree Serif', serif;
+
+header{
+  .navbar-dark .navbar-brand{
+  color: orange;
+  font-family: $icon-style;
+  }
+  .navbar-dark .navbar-nav .nav-link{
+    color:#fff;
+  }
+}
