@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="{{url_for('static',filename='question.css')}}">
 {% endblock %}
 
+
 {% block con%}
 {% for log in logs%}
   <p class="mb-1" style="color:black">@{{log.qna.username}} asked </p>

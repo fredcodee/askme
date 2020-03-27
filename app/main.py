@@ -9,6 +9,13 @@ main = Blueprint('main', __name__)
 
 @main.route("/", methods=['POST','GET'])
 def home():
+  unans=[]
+  if current_user.expert:
+    questions=Questions.query.filter_by(expert_id=current_user.id).all()
+    for question in questions:
+      if question.answer == " ":
+        unans.append(question)
+    badge=len(unans)
       
   if request.method == 'POST':
     selection = request.form.get("selection")
@@ -21,10 +28,10 @@ def home():
     elif selection == "ALQ" or selection == "SL":
       questions=Questions.query.all()
 
-    return(render_template("home.html", questions=questions))
+    return(render_template("home.html", questions=questions,badge=badge))
   else:
     questions= Questions.query.all()
-    return(render_template("home.html",questions=questions))
+    return(render_template("home.html",questions=questions, badge=badge))
 
 @main.route("/ask", methods=['POST','GET'])
 @login_required
