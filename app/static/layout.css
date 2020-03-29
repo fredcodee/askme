@@ -1,3 +1,19 @@
+html, body {
+  background-color: #F3F3F3;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+.contents {
+  min-height: 1200px;
+}
+
 header .navbar-dark .navbar-brand {
   color: orange;
   font-family: "Abril Fatface", cursive;
@@ -8,6 +24,10 @@ header .navbar-dark .navbar-nav .nav-link {
 }
 
 footer {
+  position: absolute;
+  bottom: 0;
+  /* absolutely bottom */
+  width: 100%;
   margin-top: 4rem;
   background-color: #343a40 !important;
 }
@@ -44,5 +64,9 @@ footer .sec3 a:hover {
 
 footer small {
   color: papayawhip;
+}
+
+.clearfix {
+  padding: 20px;
 }
 /*# sourceMappingURL=layout.css.map */

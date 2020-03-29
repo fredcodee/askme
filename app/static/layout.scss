@@ -2,6 +2,21 @@ $con-style: 'Varela Round', sans-serif;
 $icon-style: 'Abril Fatface', cursive;
 $heading-style: 'Bree Serif', serif;
 
+html, body {
+    background-color: #F3F3F3;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+.contents {
+  min-height: 1200px;
+}
+
 header{
   .navbar-dark .navbar-brand{
   color: orange;
@@ -13,6 +28,9 @@ header{
 }
 
 footer{
+  position: absolute;
+  bottom: 0; /* absolutely bottom */
+  width: 100%;
   margin-top: 4rem;
   background-color: #343a40!important;
   .list{
@@ -41,4 +59,7 @@ footer{
   small{
     color: papayawhip;
   }
+}
+.clearfix {
+    padding: 20px;
 }
