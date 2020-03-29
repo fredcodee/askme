@@ -13,12 +13,12 @@
   <div class="answerbox">
     <div class="q">
       <p class="mb-1" style="color:black">@{{get_q.qna.username}} asked  on - <span>{{get_q.dateposted.strftime("%b %d %Y %H:%M:%S")}}</span></p>
-      <p>{{get_q.question}}</p>
+      <p class="qq">{{get_q.question}}</p>
     </div>
     <div class="a">
       <form method= "POST" action="{{ url_for('main.answer', idd= get_q.id) }}">
-        <input type="text" name="answer">
-        <button>submit</button>
+        <input type="text" name="answer" placeholder="type your answer here" required><br>
+        <button class="btn btn-primary">submit</button>
       </form>
     </div>
   </div>
