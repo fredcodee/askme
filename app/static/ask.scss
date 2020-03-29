@@ -1,0 +1,48 @@
+@import 'layout';
+
+/* 
+$con-style: 'Varela Round', sans-serif;
+$icon-style: 'Abril Fatface', cursive;
+$heading-style: 'Bree Serif', serif; */
+.row{
+  .ask{
+    padding: 2rem;
+    margin-top: 2rem;
+    width: 100%;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.36);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.36);
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.86);
+    border-radius: 10px 10px 10px 10px;
+    label span{
+      font-size: 12px;
+      color: grey;
+    }
+    #question{
+      margin-bottom: 1.2rem;
+      padding: 0.2rem 0.6rem 5rem 0.6rem;
+      width: 100%
+    }
+    label,.aa{
+      font-weight: bold;
+    }
+    button{
+      min-width: 150px;
+      color: #fff;
+      background: #ed6d20;
+    
+      &:hover{
+        background :#F9D8B1;    
+      }
+    }
+  }
+  .con{
+    padding-top: 2rem;
+    font-family: $con-style;
+    h1,h3{
+      line-height: 1.4;
+      font-size: 16px;
+      font-weight: 700;
+      color: red;
+    }
+  }
+}

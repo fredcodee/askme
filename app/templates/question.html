@@ -9,11 +9,15 @@
 
 
 {% block con%}
-{% for log in logs%}
-  <p class="mb-1" style="color:black">@{{log.qna.username}} asked </p>
-  <p>{{log.question}}</p>
-  <small>{{log.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small>
-  <a href="/answer/{{log.id}}"><button>Answer</button></a>
-  <hr>
-{%endfor%}
+<div class="questions">
+  {% for log in logs%}
+  <div class="qq">
+    <p class="mb-1" style="color:black">@{{log.qna.username}} asked</span> on
+    <small>{{log.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small></p>
+    <p class="user-q">{{log.question}}</p>
+    <a href="/answer/{{log.id}}"><button class="btn btn-primary">Answer</button></a>
+    <hr>
+  </div>
+  {%endfor%}
+</div>
 {% endblock%}

@@ -23,10 +23,10 @@
           {% endwith%}
           <h1>Ask a Question</h1>
           <p>Make sure what you’re asking is unique, concise, and phrased like a question.</p>
-          <label for="question">Title <span>(Required)</span></label>
+          <label for="question">Title <span>(Required)</span></label><br>
           <input type="text" id="question" name="question" placeholder="What’s your question? Be specific and unique..."
             required> <br>
-          <p>Ask an Expert</p>
+          <p class="aa">Ask an Expert</p>
           <select name="experts" method="GET" action="/ask" required>
             {%for expert in experts%}
               <option value="{{expert.id}}">{{ expert.username }}</option>"
@@ -37,7 +37,7 @@
         </form>
       </div>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-4 con">
       <h1>QUESTION GUIDELINES</h1>
       <p>Include a title to your question and a more detailed description. The more unique and informative your question, the
       better the chance you have of tutors engaging with you.</p>

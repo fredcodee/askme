@@ -1,0 +1,11 @@
+@import 'layout';
+
+.questions{
+  text-align: center;
+  margin-top: 2rem;
+
+  .user-q{
+    font-family:$con-style;
+    font-size: 23px;
+  }
+}

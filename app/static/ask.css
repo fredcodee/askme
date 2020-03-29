@@ -1,0 +1,98 @@
+header .navbar-dark .navbar-brand {
+  color: orange;
+  font-family: "Abril Fatface", cursive;
+}
+
+header .navbar-dark .navbar-nav .nav-link {
+  color: #fff;
+}
+
+footer {
+  margin-top: 4rem;
+  background-color: #343a40 !important;
+}
+
+footer .list {
+  padding-top: 1.5rem;
+}
+
+footer .list ul {
+  list-style: none;
+}
+
+footer .list ul li {
+  color: white;
+}
+
+footer .list .hd {
+  font-family: "Varela Round", sans-serif;
+  font-size: 1.2rem;
+}
+
+footer .sec3 {
+  text-align: center;
+}
+
+footer .sec3 a {
+  text-decoration: none;
+  color: orange;
+}
+
+footer .sec3 a:hover {
+  text-decoration: line-through;
+}
+
+footer small {
+  color: papayawhip;
+}
+
+/* 
+$con-style: 'Varela Round', sans-serif;
+$icon-style: 'Abril Fatface', cursive;
+$heading-style: 'Bree Serif', serif; */
+.row .ask {
+  padding: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.36);
+  box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.86);
+  border-radius: 10px 10px 10px 10px;
+}
+
+.row .ask label span {
+  font-size: 12px;
+  color: grey;
+}
+
+.row .ask #question {
+  margin-bottom: 1.2rem;
+  padding: 0.2rem 0.6rem 5rem 0.6rem;
+  width: 100%;
+}
+
+.row .ask label, .row .ask .aa {
+  font-weight: bold;
+}
+
+.row .ask button {
+  min-width: 150px;
+  color: #fff;
+  background: #ed6d20;
+}
+
+.row .ask button:hover {
+  background: #F9D8B1;
+}
+
+.row .con {
+  padding-top: 2rem;
+  font-family: "Varela Round", sans-serif;
+}
+
+.row .con h1, .row .con h3 {
+  line-height: 1.4;
+  font-size: 16px;
+  font-weight: 700;
+  color: red;
+}
+/*# sourceMappingURL=ask.css.map */

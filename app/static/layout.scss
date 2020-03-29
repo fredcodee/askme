@@ -11,3 +11,34 @@ header{
     color:#fff;
   }
 }
+
+footer{
+  margin-top: 4rem;
+  background-color: #343a40!important;
+  .list{
+    padding-top: 1.5rem;
+    ul {
+      list-style: none;
+      li{
+        color: white;
+      }
+    }
+    .hd {
+      font-family: $con-style;
+      font-size: 1.2rem;
+    }
+  }
+  .sec3{
+    text-align: center;
+    a{
+      text-decoration: none;
+      color: orange;
+      &:hover{
+        text-decoration: line-through;
+      }
+    }
+  }
+  small{
+    color: papayawhip;
+  }
+}

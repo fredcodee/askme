@@ -45,4 +45,14 @@ footer .sec3 a:hover {
 footer small {
   color: papayawhip;
 }
-/*# sourceMappingURL=layout.css.map */
+
+.questions {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.questions .user-q {
+  font-family: "Varela Round", sans-serif;
+  font-size: 23px;
+}
+/*# sourceMappingURL=question.css.map */

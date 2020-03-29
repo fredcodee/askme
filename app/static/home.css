@@ -83,43 +83,4 @@ header .navbar-dark .navbar-nav .nav-link {
 .qna .question .q, .qna .question .a {
   font-family: "Varela Round", sans-serif;
 }
-
-footer {
-  margin-top: 4rem;
-  background-color: #343a40 !important;
-}
-
-footer .list {
-  padding-top: 1.5rem;
-}
-
-footer .list ul {
-  list-style: none;
-}
-
-footer .list ul li {
-  color: white;
-}
-
-footer .list .hd {
-  font-family: "Varela Round", sans-serif;
-  font-size: 1.2rem;
-}
-
-footer .sec3 {
-  text-align: center;
-}
-
-footer .sec3 a {
-  text-decoration: none;
-  color: orange;
-}
-
-footer .sec3 a:hover {
-  text-decoration: line-through;
-}
-
-footer small {
-  color: papayawhip;
-}
 /*# sourceMappingURL=home.css.map */
