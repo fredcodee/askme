@@ -1,0 +1,23 @@
+@import 'layout';
+
+.user{
+  margin-top: 2rem;
+  h3{
+    font-family: $con-style;
+    font-size: 23px;
+  }
+  p{
+    color: orange;
+  }
+}
+.packets{
+    .qq{
+      font-family: $con-style;
+      font-size: 24px;
+    }
+    .aa{
+      span{
+      color: seagreen;
+      }
+    }
+  }

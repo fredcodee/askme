@@ -10,15 +10,17 @@
 {% block con%}
 <div class="container">
   <div class="user">
-    <h3>{{ current_user.username}}</h3>
-    <p>{{ current_user.username}} activity logs</p>
+    <h3>Hello, {{ current_user.username}}</h3>
+    <hr>
+    <p>(this is your {{ current_user.username}} activity logs)</p>
   </div>
   <div class="packets">
     {% for log in get_log %}
       <p class="mb-1" style="color:black">@{{log.qna.username}} asked on <small>{{log.dateposted.strftime("%b %d %Y %H:%M:%S")}}</small></p>
-      <p>{{log.question}}</p>
-      <p>{{log.answer}}</p>
-      <a href="/delete/{{log.id}}"><button>Delete</button></a>
+      <p class="qq">{{log.question}}</p>
+      <p class="aa">answer - <span>{{log.answer}}</span></p>
+      <a href="/delete/{{log.id}}"><button class="btn btn-danger">Delete</button></a>
+      <hr>
     {% endfor %}
   </div>
 </div>
