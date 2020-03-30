@@ -1,0 +1,21 @@
+@import 'layout';
+
+.container{
+  margin-top: 2rem;
+  width: 60%;
+  
+  h1{
+    font-family: $con-style; 
+    text-align: center;
+  }
+  button{
+    margin:auto;
+    display:block;
+    padding: 0.5rem 5rem 0.5rem 5rem;
+  }
+
+  /* for sign-up page design */
+  label{
+    font-weight: bold;
+  }
+}
