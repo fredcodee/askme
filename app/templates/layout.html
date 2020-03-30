@@ -42,11 +42,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('main.ask')}}">Ask</a>
               </li>
+              {% if current_user.expert%}
               <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('main.questions')}}">Questions <span
                     class="badge badge-info">{{ badge }}</span></a>
-      
               </li>
+              {%endif%}
               <li class="nav-item">
                 <a class="nav-link" href="{{url_for('main.profile')}}">{{ current_user.username }}</a>
               </li>

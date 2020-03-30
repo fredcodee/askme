@@ -20,9 +20,8 @@ def home():
       questions= Questions.query.filter(Questions.answer != " ").all()
     elif selection == "ALQ" or selection == "SL":
       questions=Questions.query.all()
-
     return(render_template("home.html", questions=questions))
-  else:
+  elif request.method == 'GET':
     try:
       unans=[]
       if current_user.expert:
@@ -33,6 +32,9 @@ def home():
         badge=len(unans)
         questions= Questions.query.all()
         return(render_template("home.html",questions=questions, badge=badge))
+      else:
+        questions= Questions.query.all()
+        return(render_template("home.html",questions=questions))
     except:
       questions= Questions.query.all()
       return(render_template("home.html",questions=questions))
@@ -119,10 +121,20 @@ def delete(idd):
     db.session.commit()
     return(redirect(url_for('main.profile')))
 
-
+#admin panel
 @main.route("/admin", methods=['POST','GET'])
 @login_required
 def admin():
   users= User.query.all()
   questions=Questions.query.all()
   return(render_template("admin.html", users=users, questions=questions))
+
+#error handling
+@main.errorhandler(404)
+def not_found_error(error):
+    return(render_template('error.html'), 404)
+
+@main.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()
+    return(render_template('error.html'), 404)
